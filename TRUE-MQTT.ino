@@ -10,7 +10,7 @@ const char* mqtt_server = "192.168.1.100";  //Zuen ioMBianaren IP helbidea
 const int mqtt_port = 1883;
 const char* mqtt_user = "iompi";
 const char* mqtt_pass = "iompi";
-const char* topic = "1";  //Zuen nodMCU-a. Gogoratu 3 dituzuela
+const char* topic = "1";  //Zuen nodeMCU-a. Gogoratu 3 dituzuela
 
 // Objektuak
 WiFiClient espClient;
@@ -43,7 +43,7 @@ void setup_wifi() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("MQTT zerbitzarira konektatzen...");
-    if (client.connect("NodeMCUClient", mqtt_user, mqtt_pass)) {
+    if (client.connect("NodeMCUClient1", mqtt_user, mqtt_pass)) {   //Zuen nodeMCU-a. Gogoratu 3 dituzuela
       Serial.println("konektatua!");
     } else {
       Serial.print("Huts egin du, rc=");
@@ -79,7 +79,6 @@ void loop() {
 
     // LED piztu mezua bidaltzean (aktibo baxua!)
     digitalWrite(led, LOW);
-    delay(500);
     digitalWrite(led, HIGH);
 
     // botoia askatu arte itxaron
